@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="calendar_event_form_inherit" model="ir.ui.view">
+        <field name="name">calendar.event.form.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="priority">20</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="create_appointment_invoice"
+                            string="Create Invoice"
+                            class="btn-primary"
+                            confirm="Are you sure you want to create invoice for this appointment?"
+                            type="object"/>
+                </header>
+            </xpath>
+            <xpath expr="//button[@name='action_open_calendar_event']" position="after">
+                    <button class="oe_stat_button" name="action_view_appointment_invoice" type="object"
+                            icon="fa-pencil-square-o" attrs="{'invisible':[ ('appointment_invoice_count', '=', 0)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="appointment_invoice_count" widget="statinfo" nolabel="1" class="mr4"/>
+                            </span>
+                            <span class="o_stat_text">Invoices</span>
+                        </div>
+                    </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
