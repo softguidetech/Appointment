@@ -12,7 +12,7 @@
     'website': "http://www.sgt.com",
     'category': 'appointment',
     'version': '0.1',
-    'depends': ['appointment','website_appointment','invoice'],
+    'depends': ['appointment','website_appointment','account'],
     'data': [
         'security/ir.model.access.csv',
         'views/account_move.xml',
