@@ -16,15 +16,18 @@
                 </header>
             </xpath>
             <xpath expr="//button[@name='action_open_calendar_event']" position="after">
-                    <button class="oe_stat_button" name="action_view_appointment_invoice" type="object"
-                            icon="fa-pencil-square-o" attrs="{'invisible':[ ('appointment_invoice_count', '=', 0)]}">
-                        <div class="o_field_widget o_stat_info">
-                            <span class="o_stat_value">
-                                <field name="appointment_invoice_count" widget="statinfo" nolabel="1" class="mr4"/>
-                            </span>
-                            <span class="o_stat_text">Invoices</span>
-                        </div>
-                    </button>
+                <button class="oe_stat_button" name="action_view_appointment_invoice" type="object"
+                        icon="fa-pencil-square-o" attrs="{'invisible':[ ('appointment_invoice_count', '=', 0)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="appointment_invoice_count" widget="statinfo" nolabel="1" class="mr4"/>
+                        </span>
+                        <span class="o_stat_text">Invoices</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='stop']" position="after">
+                <field name="list_price"/>
             </xpath>
         </field>
     </record>

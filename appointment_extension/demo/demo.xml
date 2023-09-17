@@ -4,7 +4,7 @@
         <record id="appointment_product" model="product.product">
             <field name="name">Appointment Fees</field>
             <field name="type">product</field>
-            <field name="list_price">200.00</field>
+<!--            <field name="list_price">200.00</field>-->
         </record>
     </data>
 </odoo>

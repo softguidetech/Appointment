@@ -7,6 +7,7 @@ class CalendarEvent(models.Model):
     _inherit = "calendar.event"
 
     appointment_invoice_count = fields.Integer("Invoice", compute='_compute_appointment_invoice_count')
+    list_price = fields.Float(string='Appointment Fee')
 
     @api.depends()
     def _compute_appointment_invoice_count(self):
@@ -24,14 +25,13 @@ class CalendarEvent(models.Model):
             product = self.env['product.product'].create({
                 'name': 'Appointment Fees',
                 'type': 'service',  # Set the appropriate product type
-                'list_price': 200.00,  # Set the default list price
             })
 
         line_vals = {
             'name': 'Appointment fees',
             'product_id': product.id,  # Set the product as the invoice line's product
             'quantity': 1,
-            'price_unit': product.list_price,  # Use the product's list price
+            'price_unit': self.list_price,  # Use the product's list price
         }
         move_vals = {
             'date': Date.today(),
