@@ -17,6 +17,7 @@
         'security/ir.model.access.csv',
         'views/account_move.xml',
         'views/appointment_calender.xml',
+        'views/appointment_portal_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
