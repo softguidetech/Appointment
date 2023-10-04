@@ -10,6 +10,11 @@
             </td>
         </xpath>
     </template>
+<!--    <template id="appointment_select_operator_inherit" inherit_id="website_appointment.appointment_select_operator">-->
+<!--        <xpath expr="//header" position="attributes">-->
+<!--            <attribute name="style">padding-top: 20px; padding-left: 110px;</attribute>-->
+<!--        </xpath>-->
+<!--    </template>-->
 
     <!--  todo remove later-->
     <template id="website_appointment.appointment_select_operator" name="Online Appointment: Appointment Operators">
@@ -45,23 +50,16 @@
                         </div>
                     </div>
                     <div class="row px-0 pt-3">
-                        <!--                        shadow-sm -->
-                        <div t-foreach="users_possible" t-as="staff_user" class="col-md-4 col-lg-2 mb-2">
-                            <article class="card border-1 w-50 h-25" itemscope="itemscope"
+                        <div t-foreach="users_possible" t-as="staff_user" class="col-md-6 col-lg-4 mb-4">
+                            <article class="card border-1 shadow-sm h-100" itemscope="itemscope"
                                      itemtype="http://schema.org/Employee">
                                 <a t-attf-href="/appointment/#{appointment_type.id}?staff_user_id=#{staff_user.id}&amp;#{keep_query('*')}"
                                    class="text-reset text-decoration-none h-100">
-                                    <header class="overflow-hidden bg-secondary rounded-top">
+                                    <header class="overflow-hidden bg-secondary rounded-top text-center d-flex align-items-center"
+                                            style="padding-top: 20px;padding-left: 100px;">
                                         <img t-attf-src="/appointment/#{appointment_type.id}/avatar?user_id=#{staff_user.id}"
-                                             class="w-50 h-50 o_object_fit_cover o_appointment_avatar_background small-circle-avatar"
-                                             style="border-radius: 50%;"/>
+                                             class="w-50 h-50 o_object_fit_cover o_appointment_avatar_background rounded-circle small-circle-avatar"/>
                                     </header>
-                                    <!--                                    <header class="overflow-hidden bg-secondary rounded-top">-->
-                                    <!--&lt;!&ndash;                                        <img t-attf-src="/appointment/#{appointment_type.id}/avatar?user_id=#{staff_user.id}"&ndash;&gt;-->
-                                    <!--&lt;!&ndash;                                             class="w-100 h-100 o_object_fit_cover o_appointment_avatar_background"/>&ndash;&gt;-->
-                                    <!--                                         <img t-attf-src="/appointment/#{appointment_type.id}/avatar?user_id=#{staff_user.id}"-->
-                                    <!--                                             class="w-50 h-50 o_object_fit_cover o_appointment_avatar_background small-circle-avatar"/>-->
-                                    <!--                                    </header>-->
                                     <main class="card-body">
                                         <h2 class="mb-0" t-out="staff_user.name"/>
                                         <div class="o_wappointment_card_user_fct text-black-50 h6">
@@ -72,22 +70,14 @@
                                             <div t-field="staff_user.partner_id.website_description"
                                                  placeholder="Add a user description here..."/>
                                         </div>
-                                        <!--                                        Choose-->
-                                        <!--                                        <div class="o_wappointment_card_user_select o_wappointment_select_btn position-absolute h6 p-2 mb-0">-->
-                                        <!--                                            <span class="d-block text-bottom h6 mb-0"><t t-out="staff_user.name"/></span>-->
-                                        <!--                                        </div>-->
+                                        <div class="o_wappointment_card_user_select o_wappointment_select_btn position-absolute h6 p-2 mb-0">
+                                            <span class="d-block text-center h6 mb-0">Choose
+                                                <t t-out="staff_user.name"/>
+                                            </span>
+                                        </div>
                                     </main>
                                 </a>
                             </article>
-                            <a t-attf-href="/appointment/#{appointment_type.id}?staff_user_id=#{staff_user.id}&amp;#{keep_query('*')}"
-                               class="text-reset text-decoration-none h-100">
-                                <div class="card border-1 w-50 h-5">
-                                    <!--                                    class="o_wappointment_card_user_select o_wappointment_select_btn position-absolute h6 p-2 mb-0"-->
-                                    <span class="d-block text-bottom h6 mb-0">
-                                        <t t-out="staff_user.name"/>
-                                    </span>
-                                </div>
-                            </a>
                         </div>
                     </div>
                     <div class="oe_structure"/>
@@ -95,4 +85,40 @@
             </div>
         </t>
     </template>
+<!--    <template id="appointment_extension.appointment_template_inherit"-->
+<!--              inherit_id="website_appointments.appointment_select_operator">-->
+<!--        <xpath expr="//div[@class='row px-0 pt-3']" position="replace">-->
+<!--            <div class="row px-0 pt-3">-->
+<!--                <div t-foreach="users_possible" t-as="staff_user" class="col-md-6 col-lg-4 mb-4">-->
+<!--                    <article class="card border-1 shadow-sm h-100" itemscope="itemscope"-->
+<!--                             itemtype="http://schema.org/Employee">-->
+<!--                        <a t-attf-href="/appointment/#{appointment_type.id}?staff_user_id=#{staff_user.id}&amp;#{keep_query('*')}"-->
+<!--                           class="text-reset text-decoration-none h-100">-->
+<!--                            <header class="overflow-hidden bg-secondary rounded-top text-center d-flex align-items-center"-->
+<!--                                    style="padding-top: 20px; padding-left: 100px;">-->
+<!--                                <img t-attf-src="/appointment/#{appointment_type.id}/avatar?user_id=#{staff_user.id}"-->
+<!--                                     class="w-50 h-50 o_object_fit_cover o_appointment_avatar_background rounded-circle small-circle-avatar"/>-->
+<!--                            </header>-->
+<!--                            <main class="card-body">-->
+<!--                                <h2 class="mb-0" t-out="staff_user.name"/>-->
+<!--                                <div class="o_wappointment_card_user_fct text-black-50 h6">-->
+<!--                                    <div t-field="staff_user.partner_id.function"-->
+<!--                                         placeholder="Add a function here..."/>-->
+<!--                                </div>-->
+<!--                                <div class="o_wappointment_card_user_dsc mt-3 mb48">-->
+<!--                                    <div t-field="staff_user.partner_id.website_description"-->
+<!--                                         placeholder="Add a user description here..."/>-->
+<!--                                </div>-->
+<!--                                <div class="o_wappointment_card_user_select o_wappointment_select_btn position-absolute h6 p-2 mb-0">-->
+<!--                                    <span class="d-block text-center h6 mb-0">Choose-->
+<!--                                        <t t-out="staff_user.name"/>-->
+<!--                                    </span>-->
+<!--                                </div>-->
+<!--                            </main>-->
+<!--                        </a>-->
+<!--                    </article>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--    </template>-->
 </odoo>
