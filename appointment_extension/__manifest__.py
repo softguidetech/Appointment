@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 {
     'name': "appointment_extension",
-
+    'author': "SGT",
+    'version': '16.0.1.4',
+    'price': 55.00,
+    'currency': "EUR",
+    
     'summary': """
        Appointment Calender Event Extension""",
 
     'description': """
         Appointment Calender Event Extension
     """,
-    'author': "Jamsheena kc",
-    'website': "http://www.sgt.com",
+    'website': "http://www.softguidetech.com",
     'category': 'appointment',
     'version': '0.1',
     'depends': ['appointment','website_appointment','account'],
