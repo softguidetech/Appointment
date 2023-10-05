@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "appointment_extension",
+    'name': "appointment Extension",
     'author': "SGT",
     'version': '16.0.1.4',
     'price': 55.00,
